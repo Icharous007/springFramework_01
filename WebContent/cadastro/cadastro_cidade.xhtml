@@ -25,9 +25,53 @@
 						requiredMessage="Informe o nome da cidade."
 						value="#{cidadeBeanView.cidadeSelecionada.cidade_nome}"></p:inputText>
 						<p:message for="inputCidadeNome"></p:message>
+						
+						<h:outputLabel for="inputEstado" value="Estado: " id="labelEstado"></h:outputLabel>
+						<p:selectOneMenu id="inputEstado" required="true" requiredMessage="Informe o estado."
+						value="#{cidadeBeanView.cidadeSelecionada.estado}">
+							<f:selectItems value="#{estadoBeanView.estadados}"></f:selectItems>
+						</p:selectOneMenu>
 					</h:panelGrid>
 				</p:panel>
 				<p:commandButton value="Salvar" ajax="false" action="#{cidadeBeanView.save}"></p:commandButton>
+				<p:commandButton value="Novo" ajax="false" action="#{cidadeBeanView.novo}"></p:commandButton>
+				<p:dataTable id="tableResult" value="#{cidadeBeanView.listaDeCidades}" var="cid" emptyMessage="Não há dados para essa Tabela.">
+					<p:column>
+						<center>
+							<f:facet name="header">Código</f:facet>
+							<h:outputText value="#{cid.cidade_id}"></h:outputText>
+						</center>
+					</p:column>
+					<p:column>
+						<center>
+							<f:facet name="header">Nome</f:facet>
+							<h:outputText value="#{cid.cidade_nome}"></h:outputText>
+						</center>
+					</p:column>
+					<p:column>
+						<center>
+							<f:facet name="header">Estado</f:facet>
+							<h:outputText value="#{cid.estado.estado_nome}"></h:outputText>
+						</center>
+					</p:column>
+					<p:column>
+						<center>
+							<f:facet name="header">Editar</f:facet>
+							<p:commandLink action="#{cidadeBeanView.editar}" id="editarCidade" value="Editar" immediate="true"
+							update="@form:formCadastroCidade">
+								<f:setPropertyActionListener value="#{cid}" target="#{cidadeBeanView.cidadeSelecionada}"></f:setPropertyActionListener>
+							</p:commandLink>
+						</center>
+					</p:column>
+					<p:column>
+						<center>
+							<f:facet name="header">Excluir</f:facet>
+							<p:commandLink action="#{cidadeBeanView.excluir}" id="excluirCidade" value="Excluir" immediate="true" update="tableResult">
+								<f:setPropertyActionListener value="#{cid}" target="#{cidadeBeanView.cidadeSelecionada}"></f:setPropertyActionListener>
+							</p:commandLink>
+						</center>
+					</p:column>
+				</p:dataTable>
 			</h:form>			
 		</ui:define>		
 	</ui:composition>
