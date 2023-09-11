@@ -51,6 +51,7 @@ public class CidadeBeanView extends BeanManagedViewAbstract{
 	}
 	
 	public List<Cidade> getListaDeCidades() throws Exception{
+		listaDeCidades.clear();
 		listaDeCidades = cidadeController.findList(Cidade.class);
 		return listaDeCidades;
 	}
@@ -65,5 +66,14 @@ public class CidadeBeanView extends BeanManagedViewAbstract{
 	public void excluir() throws Exception {
 		cidadeController.delete(cidadeSelecionada);
 		novo();
+	}
+	
+	@Override
+	public void saveNotReturn() throws Exception {
+		listaDeCidades.clear();
+		cidadeController.save(cidadeSelecionada);
+		sucesso();
+		cidadeSelecionada = new Cidade();
+		getListaDeCidades();
 	}
 }
