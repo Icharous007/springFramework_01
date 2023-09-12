@@ -28,6 +28,7 @@
 			update="#{cc.attrs.camposDoFormReload}">
 			
 		</p:commandButton>
+		
 		<p:commandButton value="SALVAR" style="height:40px;width:100px;background:#CDCDC1;border: 1px solid #FFFFFF;"
 			rendered="#{cc.attrs.botaoSalvar}"
 			actionListener="#{cc.attrs.managedBeanView.saveNotReturn}"
@@ -36,8 +37,44 @@
 			process="@this, @form"
 			id="buttonSalvar"
 			immediate="false" 
-			update="#{cc.attrs.camposDoFormReload}">
-			
+			update="#{cc.attrs.camposDoFormReload}">			
+		</p:commandButton>
+		
+		<p:commandButton value="ATUALIZAR" style="height:40px;width:130px;background:#CDCDC1;border: 1px solid #FFFFFF;"
+		    rendered="#{cc.attrs.botaoAtualizar}"
+			actionListener="#{cc.attrs.managedBeanView.saveEdit}" 
+			ajax="false"
+			partialSubmit="true"
+			process="@this, @form"
+			id="buttonAtualizar"
+			immediate="false" 
+			update="#{cc.attrs.camposReload}" >
+			<!-- <h:inputHidden binding="#{cc.attrs.managedBeanView.htmlInputHidden}" value="#{cc.attrs.tipoEntidadeTemp}">
+				<f:attribute name="tipoEntidadeTemp" value="#{cc.attrs.tipoEntidadeTemp}"/>
+			</h:inputHidden> -->
+		</p:commandButton>
+		
+		<p:commandButton value="EXCLUIR" style="height:40px;width:100px;background:#CDCDC1;border: 1px solid #FFFFFF;"
+		    rendered="#{cc.attrs.botaoExcluir}"
+			actionListener="#{cc.attrs.managedBeanView.excluir}" 
+			ajax="false"
+			id="buttonExcluir"
+			immediate="false" 
+			update="#{cc.attrs.camposReload}">
+			<!-- <h:inputHidden binding="#{cc.attrs.managedBeanView.htmlInputHidden}" value="#{cc.attrs.tipoEntidadeTemp}">
+				<f:attribute name="tipoEntidadeTemp" value="#{cc.attrs.tipoEntidadeTemp}"/>
+			</h:inputHidden> -->
+		</p:commandButton>
+	
+		<p:commandButton value="CANCELAR" style="height:40px;width:130px;background:#CDCDC1;border: 1px solid #FFFFFF;"
+			action="#{cc.attrs.managedBeanView.redirecionarFindEntidade}"
+			ajax="false" 
+			id="buttonConsultar"
+			immediate="true"  
+			update="#{cc.attrs.camposReload}" >
+			<!-- <h:inputHidden binding="#{cc.attrs.managedBeanView.htmlInputHidden}" value="#{cc.attrs.tipoEntidadeTemp}">
+				<f:attribute name="tipoEntidadeTemp" value="#{cc.attrs.tipoEntidadeTemp}"/> 
+			</h:inputHidden> -->
 		</p:commandButton>
 	</composite:implementation>
 

@@ -55,6 +55,7 @@ a:focus {
 	left: 0px;
 	right: 0px;
 	height: 180px;
+	background-image: url("/WebContent/resources/img/saofrancisco.jpg");
 	background-color: #30394e85;
 }
 
@@ -212,12 +213,12 @@ a:focus {
 
 #iniciarmenu {
 	border: 1px solid gray;
-	background-color: rgb(255, 255, 125);
+	background-color: rgb(238 146 35);
 	margin-top: auto;
 	margin-left: 9px;
 	padding: 3px 10px 6px 20px;
 	width: 80px;
-	height: 20px;
+	height: 18px;
 	display: block;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -236,8 +237,9 @@ a:focus {
 
 #barramenu {
 	display: block;
-	background-color: #F7F6F5;
+	background-color: #30394e85;
 	position: absolute;
+	color: whitesmoke;
 	top: 210px;
 	width: 200px;
 	bottom: 0px;
@@ -414,6 +416,15 @@ input[type=submit] {
 .bordaImagem {
 	border: 0;
 }
+
+
+.textoBranco .ui-menuitem-text{
+	color: whitesmoke;
+}
+
+.textoBranco .ui-menu-child{
+	background: #30394e85;
+	}
 
 .espacoBranco {
 	height: 10px;

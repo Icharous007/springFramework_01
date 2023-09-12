@@ -44,12 +44,13 @@
 					<p:tooltip id="toolTipFocus" globalSelector="a, :input, :button" showEvent="focus" hideEvent="blur"></p:tooltip>
 				</div>
 				<div id="container">
+					<h:graphicImage library="img" style="display:flex; position: absolute; width: 100%" name="saofrancisco.jpg"></h:graphicImage>
 					<div id="cabecalho">
 						<span style="position: absolute; left: 25px; top: 5px;" id="spanLogo">
 							<h:graphicImage library="img" style="width:155px;height:175px;" name="logo_catequese.png" 
 							id="logoImg" styleClass="bordaImagem"></h:graphicImage>
 						</span>
-						<span style="text-align: center; font-size: 40px; margin-left: 40%; margin-top: 80px;">Sistema de Secretaria</span>
+						<span style="display:flex; color: white; text-align: center; font-size: 80px; margin-left: 25%; margin-top: 3%;">Sistema de Secretaria</span>
 						<span id="dadoslogin"> Usuário: #{entidadeBeanView.usuarioLogadoSecurity}
 							<br id="quebraUser"/>
 							Último login:
@@ -88,18 +89,18 @@
 						<ui:insert name="corpo"></ui:insert>
 					</div>
 					<div id="barramenu">
-						<p:tieredMenu id="menuEsquerdo" style="width: 200px; border: none; background:none; color: #000;">
+						<p:tieredMenu id="menuEsquerdo" style="width: 200px; border: none; background:none; color: white;">
 							<sec:ifAnyGranted roles="CADASTRO_ACESSAR, ADMIN">
-								<p:submenu label="Cadastros" id="subMenuCadastro">
+								<p:submenu label="Cadastros" id="subMenuCadastro" styleClass="textoBranco">
 									<sec:ifAnyGranted roles="CIDADE_ACESSAR, ADMIN">
 										<p:menuitem value="Cidade" id="menuCidade" action="/cadastro/cadastro_cidade.jsf?faces-redirect=true">
 										</p:menuitem>
 									</sec:ifAnyGranted>
 								</p:submenu>
 							</sec:ifAnyGranted>
-							<p:menuitem value="Sair" id="menusair" ajax="true" style="font-size: 1.2rem;" 
-							onclick="javascript:logout('#{request.contextPath}');"></p:menuitem>
-							<p:menuitem value="Início" ajax="true" id="menuinicio"
+							<p:menuitem value="Sair" id="menusair" ajax="true" style="font-size: 1.2rem; color: white;" 
+							onclick="javascript:logout('#{request.contextPath}');" ></p:menuitem>
+							<p:menuitem value="Início" ajax="true" id="menuinicio" style="font-size: 1.2rem; color: white;" 
 							onclick="redirecionarPagina('#{request.contextPath}','/restrito/principal')"></p:menuitem>
 						</p:tieredMenu>
 					</div>
