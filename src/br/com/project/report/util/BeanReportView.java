@@ -3,6 +3,7 @@ package br.com.project.report.util;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -19,7 +20,7 @@ public abstract class BeanReportView extends BeanViewAbstract {
 	protected StreamedContent arquivoReport;
 	protected int tipoRelatorio;
 	protected List<?> listDataBeanCollectionReport;
-	protected HashMap<Object, Object> parametrosRelatorio;
+	protected Map<String, Object> parametrosRelatorio;
 	protected String nomeRelatorioJasper = "default";
 	protected String nomeRelatorioSaida = "default";
 
@@ -28,7 +29,7 @@ public abstract class BeanReportView extends BeanViewAbstract {
 
 	@SuppressWarnings("rawtypes")
 	public BeanReportView() {
-		parametrosRelatorio = new HashMap<Object, Object>();
+		parametrosRelatorio = new HashMap<String, Object>();
 		listDataBeanCollectionReport = new ArrayList();
 	}
 
@@ -63,12 +64,12 @@ public abstract class BeanReportView extends BeanViewAbstract {
 		this.listDataBeanCollectionReport = listDataBeanCollectionReport;
 	}
 
-	public HashMap<Object, Object> getParametrosRelatorio() {
+	public Map<String, Object> getParametrosRelatorio() {
 		return parametrosRelatorio;
 	}
 
 	public void setParametrosRelatorio(
-			HashMap<Object, Object> parametrosRelatorio) {
+			HashMap<String, Object> parametrosRelatorio) {
 		this.parametrosRelatorio = parametrosRelatorio;
 	}
 

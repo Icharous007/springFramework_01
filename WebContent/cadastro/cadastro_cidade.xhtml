@@ -11,6 +11,10 @@
 	
 	<ui:composition template="/templates/templatePrincipal.xhtml">
 		<ui:define name="corpo">
+		<h:commandLink immediate="true">
+						<p:fileDownload value="#{cidadeBeanView.arquivoReport}"></p:fileDownload>
+						<h:graphicImage library="img" name="pdf.png"></h:graphicImage>
+					</h:commandLink>
 			<h:form id="formCadastroCidade" prependId="false">
 				<c:set var="isCadastro" value="true" scope="view"></c:set>
 				<p:panel header="Cadastros de Cidade" id="panelCadastroCidade">
@@ -43,6 +47,7 @@
 						botaoAtualizar="#{contextoBean.hasAccess('CIDADE_BTN_EDITAR', 'ADMIN') and cidadeBeanView.cidadeSelecionada.cidade_id != null}"
 						botaoExcluir="#{cidadeBeanView.cidadeSelecionada.cidade_id != null}">
 					</util:botoesCrud>
+					
 				</center>
 				</p:panel>
 				<!-- <p:commandButton value="Salvar" ajax="false" action="#{cidadeBeanView.save}"></p:commandButton>
